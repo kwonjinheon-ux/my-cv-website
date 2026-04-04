@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+	<!-- Head Part -->
+	<head>
+		<meta charset="utf-8">
+		<title>Jinheon Kwon's CV Website</title>
+		<!-- 반응형 웹페이지 필요한 소스 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- 경로 -->
+		<link id="theme-style" rel="stylesheet" href="css/style.css" />
+		<!-- 아이콘 스타일 시트 -->	
+		<link rel="stylesheet" 
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<!-- 자바 스크립트 경로 -->
+		<script src="js/script.js" defer></script>
+	</head>
+	
+	<!-- Body part -->
+	<body>
+
+	<!-- 상단 네비게이션 바 -->
+	<header class="navbar">
+		<div class="logo">
+			<!-- <img src="images/programer.png" alt="a man is doing computer" width="100px" height="100px"> -->
+			<span class="title">JIN.</span>
+		</div>
+		<button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-nav" aria-expanded="false">
+			<i class="fa-solid fa-bars"></i>
+		</button>
+		<nav id="primary-nav" class="nav-links">
+			<a href="#about">About</a>
+			<a href="#skills">Skills</a>
+			<a href="#education">Education</a>
+			<a href="#project">Project</a>
+			<a href="#experience">Experience</a>
+			<a href="#contact">Contact</a>
+			<div class="theme-switcher">
+				<input type="radio" id="theme-light" name="color_style" onclick="toggleColorTheme(this)" value="light" checked="checked">
+				<label for="theme-light">Normal</label>
+				<input type="radio" id="theme-dark" name="color_style" onclick="toggleColorTheme(this)" value="dark">
+				<label for="theme-dark">Dark</label>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+<!-- ■■■■■■■■■■■■■■■ About Section ■■■■■■■■■■■■■■■ -->
+		<section id="about" class="section about-section">
+		<h1>Be realistic, demand the impossible.</h1>
+		<div class="about-grid"> <!-- About grid -->
+			
+			<div class="about-grid-left">
+				<div class="about-introduce"> <!-- About you -->
+					<h2 class="changing-font">I am Jinheon Kwon</h2>
+				</div>
+				<div>
+					<div class="about-paragraph"><!-- Personal statement 개인소개문, 진로글 -->
+						<p>I am a first-year Bachelor of Applied Information Technology student at Wintec, developing practical skills in systems, networking, and web development. I enjoy solving real-world problems through technology and continuously improving my technical and collaborative abilities.</p>
+					</div>
+				</div>
+				<div>
+					<div class="about-paragraph">
+					<!-- Interest 관심사 -->
+						<button class="accordion-about">
+							<div class="accordion-about-panel">
+								<div class="accordion-about-panel-title about-exp-bullets"><span>My Interest</span></div>
+							</div>
+						</button>
+						
+						<div class="panel">
+							<div class="panel-inner-about">
+								<div class="exp-box-section">
+									<div class="skills-grid-about">
+										<div class="interest-card">
+											<img src="images/about/interests/f1.avif" alt="Formula 1 cars are racing on the track.">
+											<div class="interest-card-overlay">
+												<h3>F1</h3>
+												<p>I watch Formula 1 regularly, and I’ve seen two races in person.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/guitar1.jpg" alt="A photo of several guitars gathered together.">
+											<div class="interest-card-overlay">
+												<h3>I collect guitars</h3>
+												<p>I’m focusing more on collecting guitars these days.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/guitar2.png" alt="A man is holding a guitar and looking forward.">
+											<div class="interest-card-overlay">
+												<h3>I often play the guitar</h3>
+												<p>I sometimes play the guitar.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/nightquiz.jpg" alt="A team of one man and two women attending the Night Quiz Show.">
+											<div class="interest-card-overlay">
+												<h3>Night Quiz Show</h3>
+												<p>I attend the Night Quiz Show every year and enjoy solving the questions.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/travel1.jpg" alt="A group family photo.">
+											<div class="interest-card-overlay">
+												<h3>A trip with my siblings</h3>
+												<p>nothing is more precious than family.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/travel2.jpg" alt="A group family photo.">
+											<div class="interest-card-overlay">
+												<h3>Osaka family trip</h3>
+												<p>a Japan trip with my family and my aunts.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/travel3.jpg" alt="A group family photo.">
+											<div class="interest-card-overlay">
+												<h3>Sapporo trip</h3>
+												<p> I enjoy traveling whenever I have the time.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/game.png" alt="One of the fighting scenes from Yongho’s Fist.">
+											<div class="interest-card-overlay">
+												<h3>I’m good at games</h3>
+												<p> I enjoy classic games, and when I really focus, I rank near the top.</p>
+											</div>
+										</div>
+										<div class="interest-card">
+											<img src="images/about/interests/board.jpg" alt="Several board games are visible.">
+											<div class="interest-card-overlay">
+												<h3>Board game enthusiast h</h3>
+												<p> I regularly enjoy board games with my wife and friends, and solving problems is always fun.</p>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				<div>
+					<!-- 삶의 목표 -->
+					<div class="about-paragraph">
+						<button class="accordion-about">
+							<div class="accordion-about-panel">
+								<div class="accordion-about-panel-title about-exp-bullets"><span>Personal Objective</span></div>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="panel-inner">
+								<div class="exp-box-section">
+									<div class="exp-box-left">
+										<p class="exp-box-left-text">As AI rapidly changes the world, I spent a lot of time wondering whether IT was really the right path for me. I'm not in my twenties anymore, and perhaps more than most people, I can feel just how fast things are moving. But after thinking it through, I came to see it differently. The rise of AI-powered development isn't something to fear — it's a new door of opportunity. <p><br>Throughout my life, I've learned how to work with people, push through challenges, and solve problems in real situations. I'm still at the early stages in this field, but I'm confident in my ability to pick things up quickly.</p><br><p>I also believe one of my strengths is understanding what the people around me actually need. So rather than standing still, I want to keep building skills that I can use in the real world — and grow into someone who solves problems through technology.</p>
+										
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				<!-- About Icon List -->
+				</div>
+					<div class="about-icon-list">
+						<div class="about-icon-list-individual">
+							<a href="files/JinheonKwon_CV.pdf" download, target="blank" title="Download my CV">
+								<i class="fa-solid fa-file point-hover-fa"></i>
+							<a/>
+							<a href="https://www.linkedin.com" target="blank" title="Go to my Linkdin">
+								<i class="fa-brands fa-linkedin point-hover-linkdin"></i>
+							<a/>
+							<a href="https://www.instagram.com" target="blank" title="Go to my Instagram">
+								<i class="fa-brands fa-instagram point-hover-insta"></i>
+							<a/>
+							<a href="https://www.facebook.com" target="blank" title="Go to my Facebook">
+								<i class="fa-brands fa-facebook point-hover-fa"></i>
+							<a/>
+							
+						</div>
+					</div>
+				</div>
+			</div> <!-- The end of about grid-->
+			
+				<!-- Right my portrait -->
+				<div class="about-grid-right"> 
+					<div class="about-grid-portrait">
+						<img src="images/about/myPortrait3.png">
+					</div>
+				</div>
+		</div>
+		</section>
+
+<!-- ■■■■■■■■■■■■■■■ Skills Section ■■■■■■■■■■■■■■■ -->
+
+		<section id="skills" class="section skills-section">
+		<h1 class="section-title">Skills</h1>
+		<h2>Keep leveling up!</h2>
+		<p class="skills-subtitle">Continuously improving through hands-on projects and structured learning.</p>
+			<!-- wrap all of them -->
+		<div class="skills-wrap">
+		
+			<!-- Communication Skill -->
+			<div class="skill-item">
+				<div class="skill-top">
+					<div>
+						<i class="fa-regular fa-face-grin-beam" style="color: rgb(255, 212, 59); font-size: 30px; color: #e34c26"></i>
+					</div>
+					<h4 class="skill-name">Communication Skill</h4>
+					<span class="skill-score">7/10</span>
+				</div>
+				<p class="skill-desc">I enjoy engaging in conversations and building genuine connections with others. In my previous workplace, colleagues often felt comfortable sharing their thoughts and concerns with me. I have a natural ability to make people feel at ease, which helps create a supportive and open communication environment.</p>
+				<div class="progress-bar">
+					<div class="progress-fill cskill"></div>
+				</div>
+			</div>
+			
+			<!-- Teamwork -->
+			<div class="skill-item">
+				<div class="skill-top">
+					<div>
+						<i class="fa-solid fa-people-arrows" style="color: rgb(255, 212, 59); font-size: 22px; color: #e34c26"></i>
+					</div>
+					<h4 class="skill-name">Team Work</h4>
+					<span class="skill-score">9/10</span>
+				</div>
+				<p class="skill-desc">In team settings, I contribute my ideas while also encouraging others to share theirs. I understand that teamwork is essential in any organisation, and through my role as a team manager at the Korean School, I have developed a strong awareness of its importance.</p>
+				<div class="progress-bar">
+					<div class="progress-fill team"></div>
+				</div>
+			</div>
+		
+			<!-- html -->
+			<div class="skill-item">
+				<div class="skill-top">
+					<div>
+						<i class="fa-brands fa-html5" style="color: rgb(255, 212, 59); font-size: 30px; color: #e34c26"></i>
+					</div>
+					<h4 class="skill-name">HTML 5</h4>
+					<span class="skill-score">7/10</span>
+				</div>
+				<p class="skill-desc">Comfortable with semantic tags and form design. Can read HTML and instantly visualize page structure mentally. Expanding into accessibility and multimedia APIs.</p>
+				<div class="progress-bar">
+					<div class="progress-fill html"></div>
+				</div>
+			</div>
+			
+			<!-- CSS -->
+			<div class="skill-item">
+				<div class="skill-top">
+					<div>
+						<i class="fa-brands fa-css3-alt" style="color: rgb(255, 212, 59); font-size: 30px; color: #E264de4"></i>
+					</div>
+					<h4 class="skill-name">CSS 3</h4>
+					<span class="skill-score">5/10</span>
+				</div>
+				<p class="skill-desc">Solid foundation in Flexbox and Grid. Recently picked up and still practicing, but picking it up fast. Working on animations, transitions, and responsive design patterns.</p>
+				<div class="progress-bar">
+					<div class="progress-fill CSS"></div>
+				</div>
+			</div>
+			
+			<!-- Java Script -->
+			<div class="skill-item">
+				<div class="skill-top">
+					<div>
+						<i class="fa-brands fa-js" style="color: rgb(255, 212, 59); font-size: 30px; color: #f7df1e"></i>
+					</div>
+					<h4 class="skill-name">Java Script</h4>
+					<span class="skill-score">2/10</span>
+				</div>
+				<p class="skill-desc">Currently learning core syntax and control flow. Gaining early exposure to DOM manipulation and events.</p>
+				<div class="progress-bar">
+					<div class="progress-fill JS"></div>
+				</div>
+			</div>
+			
+			<!-- Python -->
+			<div class="skill-item">
+				
+				<div class="skill-top">
+					<div>
+						<i class="fa-brands fa-python" style="color: rgb(255, 212, 59); font-size: 30px; color: #3776ab"></i>
+					</div>
+					<h4 class="skill-name">Python</h4>
+					<span class="skill-score">3/10</span>
+				</div>
+				<p class="skill-desc">Has experience with basic scripting and algorithm challenges. Expanding into libraries and data handling.</p>
+				<div class="progress-bar">
+					<div class="progress-fill python"></div>
+				</div>
+			</div>
+			
+			<!-- Excel -->
+			<div class="skill-item">
+			    <div class="skill-top">
+					<div>
+						<i class="fa-solid fa-file-excel" style="color: rgb(255, 212, 59); font-size: 30px; color: #217346"></i>
+					</div>
+					<h4 class="skill-name">Excel</h4>
+					<span class="skill-score">7/10</span>
+				</div>
+					<p class="skill-desc">Proficient in formulas, pivot tables, and charts. Capable of real-world data organization and reporting.</p>
+				<div class="progress-bar">
+					<div class="progress-fill excel"></div>
+				</div>
+			</div>
+			
+			<!-- Power Point -->
+			<div class="skill-item">
+			    <div class="skill-top">
+					<div>
+						<i class="fa-solid fa-file-powerpoint" style="color: rgb(255, 212, 59); font-size: 30px; color: #d24726"></i>
+					</div>
+					<h4 class="skill-name">Power Point</h4>
+					<span class="skill-score">5/10</span>	
+			    </div>
+			    <p class="skill-desc">Can build solid presentations with clear structure. Developing consistency in design and slide animations.</p>
+			    <div class="progress-bar">
+					<div class="progress-fill ppt"></div>
+				</div>
+			</div>
+		</div> <!-- the end of skills-wrap-->
+
+		</section>
+		
+		
+<!-- ■■■■■■■■■■■■■■■ Education Section ■■■■■■■■■■■■■■■ -->
+
+		<section id="education" class="section education-section">
+		<h1 class="section-title">Education</h1>
+		<div class="skills-grid">
+		
+		    <!-- Wintec IT Course / Flip card Reference: https://www.w3schools.com/howto/howto_css_flip_card.asp?utm_source=chatgpt.com-->
+		    <div class="skill-card-course">
+				<div class="skill-card-course-inner">
+					<div class="skill-card-course-front">
+						<h3 class="card-title-course">Bachelor of Applied Information Technology at Wintec</h3>
+						<div class="card-title-course-content">
+					<p>A full‑time three‑year programme consisting of 120 credits per year, focused on building strong practical and theoretical foundations in IT.</p>
+						</div>
+						<div class="tag-list">
+							<ul class="pro-bullets">
+						<li>COMP 501</li>
+						<li>COMP 502</li>
+						<li>COMP 506</li>
+						<li>INFO 507</li>
+							</ul>
+						</div>
+					</div>
+					<!-- Back  -->
+					<div class="skill-card-course-back">
+						<h3 class="card-title-course">Programme Snapshot</h3>
+						<div class="card-title-course-content">
+							<p>Enrolled in both Semester 1 and Semester 2 of the 2026 academic year..</p>
+						</div>
+						<div class="card-title-course-evidence">
+							<img class="card-title-course-evidence evidence-popup-trigger" src="images/education/assDetail.png" alt="Programme Snapshot">
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- Image modal Refernece: https://www.w3schools.com/css/css3_images_modal.asp-->
+			<div id="evidenceModal" class="evidence-modal">
+				<span class="evidence-modal-close">&times;</span>
+				<img class="evidence-modal-content" id="evidenceModalImage" alt="">
+				<div id="evidenceModalCaption" class="evidence-modal-caption"></div>
+			</div>
+		
+		    <!-- grid container IT Operations 카드 개별-->
+		    <div class="skill-card" style="background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0.9) 74%, rgba(255, 255, 255, 0.4) 100%), url('images/education/comp501.png'); background-position: center, right bottom; background-repeat: no-repeat; background-size: cover, cover; background-clip: padding-box;">
+				<div>
+					<span class="skill-card-classN">COMP 501</span>
+				</div>
+				<h3 class="card-title">IT Operations</h3>
+				<div class="card-title-content">
+					<p>Focuses on the fundamentals of computer systems, including hardware, operating systems, and basic networking setup.</p>
+				</div>
+				<div class="tag-list">
+					<span class="tag">Hardware Setup</span>
+					<span class="tag">Windows Instatllation</span>
+					<span class="tag">Networking Basics</span>
+				</div>
+		    </div>
+
+			<!--Fundamentals of Programming and Problem Solving -->
+		    <div class="skill-card" style="background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0.9) 74%, rgba(255, 255, 255, 0.4) 100%), url('images/education/comp502.png'); background-position: center, right bottom; background-repeat: no-repeat; background-size: cover, cover; background-clip: padding-box;">
+				<div>
+					<span class="skill-card-classN">COMP 502</span>
+				</div>
+			    <h3 class="card-title">Fundamentals of Programming and Problem Solving</h3>
+			    <div class="card-title-content">
+					<p>Introduces core programming concepts and develops logical thinking to solve computational problems.</p>
+			    </div>
+				<div class="tag-list">
+					<span class="tag">Python</span>
+					<span class="tag">Algorithms</span>
+					<span class="tag">Control Flow</span>
+					<span class="tag">Problem Solving</span>
+				</div>
+		    </div>
+
+			<!--Interactive Digital Media -->
+			<div class="skill-card" style="background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0.9) 74%, rgba(255, 255, 255, 0.4) 100%), url('images/education/comp506.png'); background-position: center, right bottom; background-repeat: no-repeat; background-size: cover, cover; background-clip: padding-box;">
+				<div>
+					<span class="skill-card-classN">COMP 506</span>
+				</div>
+				<h3 class="card-title">Interactive Digital Media</h3>
+				<div class="card-title-content">
+					<p>Covers the design and development of web interfaces, focusing on user experience and front-end technologies.</p>
+				</div>
+				<div class="tag-list">
+					<span class="tag">HTML/CSS</span>
+					<span class="tag">UI/UX Design</span>
+					<span class="tag">Web Design Principles</span>
+				</div>
+			</div>
+			
+			<!--Fundamentals of Information systems -->
+			<div class="skill-card" style="background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0.9) 74%, rgba(255, 255, 255, 0.4) 100%), url('images/education/info507.png'); background-position: center, right bottom; background-repeat: no-repeat; background-size: cover, cover; background-clip: padding-box;">
+				<div>
+					<span class="skill-card-classN">INFO 507</span>
+				</div>
+				<h3 class="card-title">Fundamentals of Information systems</h3>
+				<div class="card-title-content">
+					<p >Explores how information systems support business operations, including data handling and system structures.</p>
+				</div>
+				<div class="tag-list">
+					<span class="tag">Data Management</span>
+					<span class="tag">Database Structure</span>
+					<span class="tag">Business Processes</span>
+				</div>
+			</div>
+		</div>
+		</section>
+		
+	  
+<!-- ■■■■■■■■■■■■■■■ Project Section ■■■■■■■■■■■■■■■ -->
+
+		<section id="project" class="section project-section">
+		<h1 class="section-title">Project</h1>
+		<div>
+			<div class="feature-header">
+				<h2>Deveop Website / Present Projects</h2>
+			</div>
+			
+			<div class="feature-grid">
+				<!-- CV Website -->
+				<article class="feature-card">
+					<h3>Personal CV Website</h3>
+					<div class="feature-video-box">
+						<video class="styled-video" controls>
+							<source src="videos/mycv.mp4" type="video/mp4" alt="This is a one‑minute video demonstrating how each feature of my CV website works.">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<div class="feature-text">
+						<p>Designed to be intuitive and minimal, yet visually striking. Subtle animations add a touch of personality, while internal links allow seamless single-scroll navigation — keeping all CV information just one smooth journey away.</p>
+					</div>
+					<div class="feature-card-bottom">
+						<ul class="pro-bullets">
+							<li>Course project — Built for COMP506 at Wintec.</li>
+							<li>CV-style portfolio — Personal website as a resume.</li>
+							<li>Core concepts applied — UX/UI, accessibility, user-centered design.</li>
+						</ul>
+					</div>
+					<div>
+						<div class="feature-icon-list">
+							<div class="feature-icon-individual">
+								<i class="fab fa-html5" style="font-size: 20px; color: #E44D26;"></i>
+							</div>
+								<h4>HTML</h4>
+							<div class="feature-icon-individual">
+								<i class="fab fa-css3-alt" style="font-size: 20px; color: #4da3ff;"></i>
+							</div>
+								<h4>CSS</h4>
+							<div class="feature-icon-individual">
+								<i class="fab fa-js fa-2x" style="font-size: 20px; color: black;"></i>
+							</div>
+								<h4>JAVA SCRIPT</h4>
+							<div class="feature-icon-button">
+								<button class="project-feature-submit-button"type="submit">👾Github</button>
+							</div>
+						</div>
+					</div>
+				</article>
+				
+				<!-- Korean Community Site -->
+				<article class="feature-card">
+					<h3>Virtual Hiking or Walking</h3>
+					<div class="feature-video-box">
+						<video class="styled-video" controls>
+							<source src="videos/naturelink.mp4" type="video/mp4" alt="This video presents the results of our Nature Link group brainstorming session using a mind map.">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<div class="feature-text">
+						<p>I have started COMP506 Assessment 2, and our team is using a mind map to organize ideas. We are analyzing our company with MOST, SWOT, and Project Scope to shape the project structure.</p>
+					</div>
+					<div class="feature-card-bottom">
+						<ul class="pro-bullets">
+							<li>Brainstorming.</li>
+							<li>Strategic Alignment Analysis.</li>
+							<li>Project Scoping.</li>
+						</ul>
+					</div>
+					<div>
+						<div class="feature-icon-list">
+							<div class="feature-icon-individual">
+								<i class="fa-solid fa-brain" style="font-size: 20px; color: #E44D26;"></i>
+							</div>
+								<h4>Mind Map</h4>
+							
+							<div class="feature-icon-button">
+								<button class="project-feature-submit-button"type="submit">👾Github</button>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+		</section>
+	  
+	  
+<!-- ■■■■■■■■■■■■■■■ Experience Section ■■■■■■■■■■■■■■■ -->
+
+		<section id="experience" class="section experience-section">
+		<h1 class="section-title">Experience</h1>
+		<!-- 4 grids -->
+		<div class="exp-grid">
+			<div class="exp-sentence">
+				<p>Starting as a general employee, I developed hands-on practical skills on the ground.</p>
+			</div>
+			<div class="exp-sentence">
+				<p>As a manager, I strengthened leadership and communication by guiding a team forward.</p>
+			</div>
+			<div class="exp-sentence">
+				<p>As a CEO, I grew my strategic thinking and decision-making by running a business firsthand.</p>
+			</div>
+			<div class="exp-sentence">
+				<p>Through these diverse roles, I became someone who can adapt and contribute in any environment.</p>
+			</div>
+		</div>
+		
+		<!-- Accordian Menu -->
+		<!-- The vechelor of applied IT at Wintec -->
+		<!-- <div class="exp-shape">
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date"><span>2026 - Present</span></div>
+					<div class="accordian-panel-title"><span>The vechelor of applied IT at WINTEC</span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">In 2026, I began a new chapter of my academic journey at Wintec, stepping into the world of technology with clear goals and a strong sense of purpose. I am currently enrolled in four core courses that are shaping my technical foundation and expanding my understanding of modern computing.</p>
+							<ul class="exp-bullets">
+								<li>COMP501 – Programming Fundamentals</li>
+								<li>COMP502 – Operating Systems & Hardware</li>
+								<li>COMP506 – Interactive Digital Media</li>
+								<li>INFO507 – Fundamentals of Information Systems</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/wintec_house.jpg" alt="A photo of Wintec House beautifully blending with the blue sky.">
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+			<!-- The vechelor of applied IT at Wintec -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date"><span>2022 - Present</span></div>
+					<div class="accordian-panel-title"><span>YouTube video production agency</span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">During the COVID‑19 period, I immigrated to New Zealand and began running a blog during the lockdowns. The blog grew rapidly, and I eventually published a book sharing my strategies, which ranked No.1 in the AdSense category on the Kmong e‑book platform. Around the same time, I launched a YouTube channel and quickly gained a large number of subscribers. After my channel gained traction, advertising agencies reached out and asked me to produce ads for them, leading me to create more than 500 Shorts‑based advertisements. In addition, I collaborated on advertising projects with major companies such as SK and SK Energy.</p>
+							<ul class="exp-bullets">
+								<li>Reached 70,000 subscribers within two months</li>
+								<li>Regularly invited to Google Korea webinars</li>
+								<li>Produced over 500 YouTube Shorts advertisements</li>
+								<li>Studied various marketing styles and strategies</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/MakingYoutube.jpg" alt="A scene of editing with Final Cut at the Auckland Library.">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Deputy Principal of Waikato Korean School -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date"><span>2020 - Present</span></div>
+					<div class="accordian-panel-title"><span>Deputy Principal of Waikato Korean School</span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">Waikato Korean School is one of Hamilton's most established community language schools, proudly serving the Waikato region for over 30 years. With approximately 100 students enrolled, the school offers Korean language and cultural history education to a diverse community — including Korean families, multicultural Korean-Kiwi households, and New Zealanders with a passion for learning the Korean language and culture.</p>
+							<ul class="exp-bullets">
+								<li>Deputy Principal (5 years & Present)</li>
+								<li>School Leadership & Administration</li>
+								<li>Financial Management</li>
+								<li>Teacher & Student Management</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/korean_school.jpg" alt="A group photo of the Waikato Korean School taken at Wintec.">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- E-Book -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date-past"><span>2019 - 2022</span></div>
+					<div class="accordian-panel-title"><span>Authored an e-book on Google SEO </span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">During the COVID-19 period, I authored an e-book on Google SEO and Google AdSense as a side project. The book sold 430 copies at NZD 30 per copy. In the same year, it ranked No.1 in the Google SEO/AdSense category on the Kmong freelance platform. In addition, I generated further sales through my personal blog.</p>
+							<ul class="exp-bullets">
+								<li>E-book publishing & sales</li>
+								<li>Google SEO & AdSense expertise</li>
+								<li>Digital marketing performance</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/kmong.png" alt="The detailed sales data from the Kmong platform is no longer available due to the time elapsed..">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- hoihoi CEO -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date-past"><span>2019 - 2021</span></div>
+					<div class="accordian-panel-title"><span>CEO of a food company </span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">Since 2019, I co-founded a freeze-dried food company with friends, securing government funding twice, receiving NZD 60,000 on each occasion (total NZD 120,000). The company focused on developing products for infants, and we collaborated with a New Zealand-based design team to enhance product and brand development. I took a leading role in delivering government project presentations. Later, I stepped away from the business to pursue other projects and transferred the CEO role to my co-founder.</p>
+							<ul class="exp-bullets">
+								<li>Government-funded projects</li>
+								<li>Startup co-founder</li>
+								<li>Product development & collaboration</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/hoihoi.jpg" alt="Photos of the freeze‑dried fruit prototypes made directly by Hoihoi.">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Mechanical Designer Engineer -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date-past"><span>2008 - 2020</span></div>
+					<div class="accordian-panel-title"><span>Mechanical Designer Engineer</span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">I have over 12 years of experience in mechanical design engineering, working primarily with CAD, CATIA, and SolidWorks software. Throughout my career, I have worked as both a project manager overseeing overall project delivery and a team manager responsible for leading and coordinating team members.At HBE Press, I was involved in the design of forging press machinery. At HK Steel, I collaborated on outsourced engine design projects with Hyundai Heavy Industries, and also provided plant design and engineering services as an outsourced partner for POSCO.</p>
+							<ul class="exp-bullets">
+								<li>Mechanical Designer Engineer (12 years)</li>
+								<li>Project Manager</li>
+								<li>Team Manager</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/HyundaiHeavyInd.jpg" alt="A marine engine manufactured as an outsourced project for Hyundai Heavy Industries.">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Computer Graphic Designer -->
+			<button class="accordion">
+				<div class="accordian-panel">
+					<div class="accordian-panel-date-past"><span>2006 - 2008</span></div>
+					<div class="accordian-panel-title"><span>Computer Graphic Designer</span></div>
+				</div>
+			</button>
+			<div class="panel">
+				<div class="panel-inner">
+					<div class="exp-box-section">
+						<div class="exp-box-left">
+							<p class="exp-box-left-text">I studied Advertising Design, where I learned Photoshop, Illustrator, and 3D Max. During my studies, I won several design competitions and awards. Following that, I was scouted and spent one year working on CG projects for Korean TV dramas. After that, I worked at Tesco for two years as an advertising and graphic designer.</p>
+							<ul class="exp-bullets">
+								<li>Various Programs (Photoshop, Illustrator)</li>
+								<li>Two design awards</li>
+							</ul>
+						</div>
+						<div class="exp-box-right">
+							<img class="exp-box-right-image evidence-popup-trigger" src="images/experiences/GeneralLee.jpg" alt="CG scene from KBS1’s public TV drama Immortal Admiral Yi Sun-sin.">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		</section>
+		
+<!-- ■■■■■■■■■■■■■■■ Contact Section ■■■■■■■■■■■■■■■ -->
+
+		<section id="contact" class="section contact-section">
+		<h1 class="section-title">Contact</h1>
+		<div class="contact-layout">
+			<div class="contact-left">
+				<p class="contact-text">
+				  I am always open to discussing new projects, creative ideas, and opportunities to grow together. Please feel free to reach out for anything from a quick question to a potential collaboration. I also value building positive and collaborative relationships with colleagues and believe that strong teamwork creates a supportive and productive environment.
+				</p>
+				<div class="contact-box">
+				  <span><a href="mailto:kwonjinheon@gmail.com">✉️ kwonjinheon@gmail.com</a></span>
+				</div>
+				<div class="contact-box">
+				  <span><a href="linkdin.com/in/jinheonkwon" target="blank">💼 linkdin.com/in/jinheonkwon</a></span>
+				</div>
+				<div class="contact-box">
+				  <span><a href="github.com/jinheonkwon" target="blank">👾 github.com/jinheonkwon</a></span>
+				</div>
+			</div>
+
+			<div class="contact-right">
+				<div class="titlebar">
+				  <div class="dot dot-red"></div>
+				  <div class="dot dot-yellow"></div>
+				  <div class="dot dot-green"></div>
+				</div>
+
+				<form action="mailto:kwonjinheon@gmail.com" method="post" enctype="text/plain">
+					<div>
+						<label>Name</label>
+						<input type="text" id="name" name="name" placeholder="Your name" required>
+					</div>
+					<div>
+						<label>E-mail</label>
+						<input type="text" id="email" name="email" placeholder="Your E-mail" required>
+					</div>
+					<div>
+						<label>Message</label>
+						<textarea id="message" name="message" placeholder="Message" required></textarea>
+					</div>
+					<div>
+						<button class="send-button" type="submit">Send message</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		</section>
+	</main>
+
+	<footer class="copyright">
+	  <br>
+	  <p>copyright&copy; Jinheon Kwon. All right reserved.</p>
+	  <br>
+	</footer>
+	</body>
+	<style>
+	</style>
+</html>
+
+
+

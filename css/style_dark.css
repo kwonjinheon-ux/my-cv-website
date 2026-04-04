@@ -1,0 +1,2048 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap');
+/*Reference https://www.w3schools.com/css/css_font_google.asp*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding-top: 0;
+	position: relative;
+}
+
+body {
+	background:  linear-gradient(
+    135deg,
+    #0a2a43 0%,   
+    #0b4f3c 35%,  
+    #1aa87a 70%,  
+    #9fffe8 100%
+);
+	background-attachment: fixed;
+	color: #111111;
+	font-family: 'DM Sans', sans-serif;
+	min-height: 100vh;
+	
+}
+
+ /* 모든 리스트 텍스트 크기와 자간 통일 */
+li {
+	font-size: 14px;
+	line-height: 1.7;
+	letter-spacing: 0.01em;
+	color: #53656d;
+}
+
+/*하이퍼링크 밑줄 안생기게 하기*/
+a {
+	text-decoration: none; 
+}
+
+/*  ■■■■■■■■■■■■■■■ About Section ■■■■■■■■■■■■■■■ */
+.navbar {
+	padding: 72px 5% 52px;
+	position: fixed;        /* 스크롤해도 상단 고정  */
+	top: 0;                 /* 화면 최상단에 배치  */
+	width: min(100%, 1600px); 
+	left: 50%;
+	transform: translateX(-50%); 
+	display: flex;          /* 자식 요소 가로 배치 */
+	justify-content: space-between; /* 로고와 메뉴 양 끝 정렬 */
+	align-items: center;    /* 수직 가운데 정렬 / Vertically centers all items */
+	padding: 12px 5%;      
+	background: rgba(255, 255, 255, 0.9); 
+	backdrop-filter: blur(18px) saturate(180%);          /* 배경 블러+채도 효과 (유리느낌)  */
+	-webkit-backdrop-filter: blur(18px) saturate(180%);  /* Safari 호환 블러 처리  */
+	border-bottom: 1px solid rgba(160, 200, 205, 0.5);   /* 하단 연한 민트 구분선*/
+	box-shadow: 0 2px 24px rgba(80, 160, 165, 0.1);      /* 아래 방향 민트 그림자  */
+	z-index: 20000;         
+}
+
+@media (min-width: 1024px) { /* <-- 해상도에 따른 레이아웃 설정*/
+  .navbar {
+    padding-left: 13%; 
+    padding-right: 13%; 
+  }
+}
+
+.navbar {
+	width: min(100%, 1120px);
+	min-height: 72px;
+	padding: 0 clamp(28px, 6vw, 120px);
+}
+
+/*  ■■■■■■■■■■■■■■■ Logo ■■■■■■■■■■■■■■■ */
+
+
+/*Logo 사용중지*/
+/*.logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 160px;
+}
+
+.logo img {
+	max-width: 100%;
+	height: auto;
+}
+*/
+
+.title {
+	font-weight: 700; /*폰트 강조 or bold*/
+	font-size: 20px;
+	color: #111111;
+	letter-spacing: 0;
+	text-shadow: none;
+}
+
+.nav-links {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.nav-links a {
+	position: relative; /* 가상 요소(::after) 위치 기준점 설정 */
+	color: #333333; 
+	font-weight: 500; 
+	font-size: 16px; 
+	padding: 10px 14px; 
+	letter-spacing: 0; /* 글자 간격 기본값 / Default letter spacing */
+	transition: color 0.2s; /* hover 시 색상 부드럽게 변화 */
+}
+
+
+.nav-links a::after {
+	content: "";
+	position: absolute;
+	left: 14px;
+	bottom: 6px;
+	width: calc(100% - 28px);
+	height: 2px;
+	background: linear-gradient(90deg, #111111, #555555);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+	color: #111111;
+	text-shadow: none;
+}
+
+.nav-links a:hover::after {
+	transform: scaleX(1);
+}
+
+.theme-toggle-link { 
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+
+
+/*  ■■■■■■■■■■■■■■■ Toggle button(Dark) ■■■■■■■■■■■■■■■ */
+
+.theme-toggle { 
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	appearance: none;
+	-webkit-appearance: none;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(255, 255, 255, 0.7);
+	color: #111111;
+	padding: 8px 14px;
+	border-radius: 999px;
+	cursor: pointer;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+	transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-toggle::after { /*  다크모드 버튼 아래 밑줄 효과 제거 */
+	content: none;
+}
+
+.theme-toggle-link::after { /* 버튼을 감싼 링크의 밑줄 제거 has 특정조건*/
+	content: none;
+}
+
+.theme-toggle-link:hover::after { /* 롤오버에도 밑줄 안 나오게 유지 */
+	content: none;
+}
+
+.theme-toggle:hover { /* 데스크톱 버튼 롤오버 복구 */
+	color: #edf3f7;
+	background: #18242b;
+	border-color: rgba(160, 185, 198, 0.32);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+	transform: translateY(-1px);
+}
+
+/* ============================================================
+HAMBURGER MENU
+Reference: https://www.w3schools.com/bootstrap//tryit.asp?filename=trybs_ref_glyph_menu-hamburger&stacked=h
+   ============================================================ */
+.menu-toggle { 
+	display: none; /* 기본적으로 버튼 숨김 / Hide the button by default <-- 초기화면에선 무조건 숨겨야함*/ 
+	border: none; 
+	background: none;
+	font-size: 25px; /* 햄버거 아이콘 크기  */
+	cursor: pointer; /* 마우스 올리면 클릭 커서 표시  */
+	color: #111111; 
+}
+
+
+@media (max-width: 720px) { 
+.menu-toggle { /* 모바일에서 햄버거 버튼 보이기 */
+    display: block;
+  }
+
+.nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center; 
+    background: rgba(220, 238, 240, 0.95);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    border-top: 0;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+ .nav-links.open {
+    max-height: 420px; 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    border-top: 1px solid rgba(80, 160, 165, 0.3);
+    border-bottom: 1px solid rgba(80, 160, 165, 0.2);
+    box-shadow: 0 8px 32px rgba(60, 140, 145, 0.12);
+  }
+
+ .nav-links.open a {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.35s ease forwards;
+    color: #111111;
+    text-align: center;
+    border-bottom: 1px solid rgba(80, 160, 165, 0.15);
+  }
+  
+
+.theme-toggle {
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(255, 255, 255, 0.7);
+	color: #111111;
+	padding: 8px 14px;
+	border-radius: 999px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-toggle::after { /* 다크모드 버튼 아래 밑줄 효과 제거 */
+	content: none;
+}
+
+.theme-toggle-link::after { /* 버튼을 감싼 링크의 밑줄 제거 */
+	content: none;
+}
+
+.theme-toggle-link:hover::after { /* 롤오버에도 밑줄 안 나오게 유지 */
+	content: none;
+}
+
+.theme-toggle:hover {
+	color: #edf3f7;
+	background: #18242b;
+	border-color: rgba(160, 185, 198, 0.32);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+	transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .nav-links .theme-toggle {
+    display: block; /* 모바일 메뉴 맨 아래 버튼 확실히 보이기 */
+    width: calc(100% - 32px);
+    margin: 14px 16px 18px;
+    padding: 12px 16px;
+    order: 99;
+    align-self: stretch;
+    justify-content: center;
+    background: #111111;
+    color: #edf3f7;
+    border-color: rgba(80, 160, 165, 0.2);
+  }
+}
+
+
+
+/* 모바일 모드에서 모든 메뉴 순차적으로 나오는 에니메이션 효과*/
+.nav-links.open a:nth-child(1) { animation-delay: 0.10s; }
+.nav-links.open a:nth-child(2) { animation-delay: 0.15s; }
+.nav-links.open a:nth-child(3) { animation-delay: 0.20s; }
+.nav-links.open a:nth-child(4) { animation-delay: 0.25s; }
+.nav-links.open a:nth-child(5) { animation-delay: 0.30s; }
+.nav-links.open a:nth-child(6) { animation-delay: 0.35s; }
+
+.theme-toggle-link { /*다크모드 버튼 감싸는 링크를 모바일에서 별도 줄로 배치 */
+    display: block;
+    width: 100%;
+    padding: 0;
+    order: 99;
+}
+
+.nav-links.open .theme-toggle-link { /* 버튼 래퍼는 일반 링크 애니메이션에서 제외 */
+    opacity: 1;
+    transform: none;
+    animation: none;
+    border-bottom: 0;
+  }
+}
+
+/* ============================================================
+   SECTION - 각 페이지마다 색깔을 다르게 하기위해 분할 섹션
+   ============================================================ */
+.section {
+	min-height: auto; 
+	padding: 72px 5% 52px;
+	scroll-margin-top: 70px;
+	border-bottom: none;
+	box-shadow: none;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 56px 13% 44px; 
+  }
+}
+
+
+
+.section {
+	padding: 40px clamp(28px, 6vw, 120px) 60px;
+	scroll-margin-top: 74px;
+	position: relative;
+}
+
+.section::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	background: rgba(120, 145, 155, 0.24);
+}
+
+/* 각 섹션 배경은 여기서 개별 수정 */
+
+/* About Section */
+.about-section {
+	padding-top: 114px;
+	background: rgba(246, 251, 252, 0.99);
+}
+
+/* Skill Section*/
+.skills-section {
+	background: rgba(236, 246, 248, 0.9);
+}
+
+/* Education Section*/
+.education-section {
+	background: rgba(232, 242, 246, 0.99);
+}
+
+/* Project Section*/
+.project-section {
+	background: rgba(239, 247, 244, 0.99);
+}
+
+/* Experience Section */
+.experience-section {
+	background: rgba(243, 247, 241, 0.99);
+}
+
+/* Contact Section */
+.contact-section {
+	background: rgba(246, 251, 252, 0.99);
+}
+
+.section-title {
+	font-size: 40px;
+	font-family: 'Playfair Display', serif;
+	font-weight: 800;
+	color: #111111;
+	letter-spacing: 1px;
+	margin-bottom: 24px;
+	text-transform: uppercase;
+}
+
+.section-title::before { 
+	content: '#';
+	color: #155DFC;
+	opacity: 1;
+	font-weight: 1800;
+}
+
+
+   
+/*  ■■■■■■■■■■■■■■■ About Page ■■■■■■■■■■■■■■■ */
+/* Reference: https://www.w3schools.com/css/css_grid_container.asp*/
+
+.about-introduce h2 {
+	font-size: 110px;
+	color: black;
+	line-height: 0.8;
+}
+
+.about-grid {
+	display: flex;
+	/* align-items: center; */
+}
+
+@media (max-width: 900px) {
+	.about-grid {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.about-grid-right {
+		align-items: center;   /*모바일에서만 가운데 정렬*/
+	}
+}
+
+.about-grid-left {
+	flex: 1;
+}
+
+.about-grid-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.about-grid-portrait img {
+	display: block;
+	width: 400px;
+	height: auto;
+}
+
+.about-paragraph {
+	margin: 10px 0px;
+}
+
+.about-grid-left p {
+  font-size: 16px;
+}
+
+
+.about-icon-list {
+	display: flex;
+	padding-top:30px;
+	justify-content: flex-start;
+	gap: 18px;
+	line-height: 0;
+}
+
+.about-icon-list-individual {
+	flex:1;
+}
+
+.about-icon-list-individual i {
+	padding: 0px 4px;
+}
+
+/*어바웃 아이콘 세팅*/
+
+.point-hover-linkdin {
+	font-size: 33px; 
+	color: #008debff;
+	display: inline-block; /* 마우스 롤 오보 되었을시, 커질때 흔들리는걸 방지 하려고 했는데 잘되는지 모르겠음 */
+	transition: transform 0.3s ease,  color 0.3s ease;
+}
+
+.point-hover-linkdin:hover {
+	font-size: 33px; 
+	color: #eb0086ff;
+	transform: translateY(0) scale(1.06);
+	transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.point-hover-insta {
+	font-size: 33px; 
+	color: #008debff;
+	display: inline-block; 
+	transition: transform 0.3s ease,  color 0.3s ease;
+}
+
+.point-hover-insta:hover {
+	font-size: 33px; 
+	color: #eb0086ff;
+	transform: translateY(0) scale(1.06);
+	transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.point-hover-fa {
+	font-size: 33px;
+	color: #008debff;
+	display: inline-block; 
+	transition: transform 0.3s ease,  color 0.3s ease;
+}
+
+.point-hover-fa:hover {
+	color: #eb0086ff;
+	transform: scale(1.06);
+	display: inline-block; 
+	transition: transform 0.3s ease,  color 0.3s ease;
+}
+
+/* Accordion about panel */
+
+.about-exp-bullets span::before {
+	content: '▸';
+	color: #27C93F;
+	flex-shrink: 0;
+	margin-right: 6px;
+}
+
+
+.accordion-about {
+	
+	background-color: transparent;
+	cursor: pointer;
+	padding: 10px 3px;;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	font-weight:2000;
+}
+
+.accordion-about:hover {
+	
+	box-shadow: none;
+	font-weight: 4000;
+}
+
+
+.accordion-about-panel {
+	display: flex;
+	float: left;
+	align-items: center;
+}
+
+
+.accordion-about-panel-title {
+	flex: 1;
+	padding-left: 12px;
+	font-weight: 200;
+	font-size: 15px;
+	color: #3b555c;
+}
+
+
+
+
+/*  ■■■■■■■■■■■■■■■ Skills Page ■■■■■■■■■■■■■■■ */
+/*  Reference: https://www.w3schools.com/howto/howto_js_progressbar.asp
+   ============================================================ */
+   
+.skills-wrap {
+	width: 100%;
+	padding: 25px 40px;
+	border-radius: 13px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(12px);
+}
+
+.skills-subtitle {
+	margin-bottom: 40px;
+	color: #5c6f91;
+}
+
+.skill-item {
+	margin-bottom: 30px;
+}
+
+.skill-top {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.skill-name {
+	padding: 0px 10px;
+	font-size: 22px;
+	font-weight: 700;
+	color: #1f2a44;
+}
+
+.skill-score {
+	margin-left: auto;
+	font-weight: 600;
+	color: #5c6f91;
+}
+
+.skill-desc {
+	font-size: 16px;
+	color: #53656d;
+	margin-bottom: 8px;
+}
+
+.progress-bar {
+	height: 15px;
+	background: rgba(180, 200, 230, 0.3);
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.progress-fill {
+	height: 100%;
+	border-radius: 999px;
+}
+
+
+.cskill { width: 70%; background: linear-gradient(90deg, #ffd36b); }
+.team { width: 90%; background: linear-gradient(90deg,  #ffd36b); }
+.html { width: 60%; background: linear-gradient(90deg,#ff7b54,#ff9b71); }
+.CSS { width: 50%; background: linear-gradient(90deg,#ff7b54,#ff9b71); }
+.JS { width: 20%; background: linear-gradient(90deg,#ff7b54,#ff9b71); }
+.python { width: 30%; background: linear-gradient(90deg,#3a86ff,#5fa8ff); }
+.excel { width: 70%; background: linear-gradient(90deg,#118ab2,#3bb0d6); }
+.ppt { width: 50%; background: linear-gradient(90deg,#118ab2,#3bb0d6); }
+
+@media (max-width:768px){
+  .skills-wrap {
+    padding: 30px 20px;
+  }
+}
+
+/*  ■■■■■■■■■■■■■■■ About Page ■■■■■■■■■■■■■■■ */
+/*  Reference: https://www.w3schools.com/css/css_grid.asp
+   ============================================================ */
+   /*원래는 Skill 쪽에 쓸려고 했으나, Education에 더 적합해서 변경
+   "I originally planned to include it under Skills, but it fits better under Education, so I moved it.*/
+   
+.skills-grid {
+	display: grid; /* 그리드 레이아웃 사용 / Use CSS Grid layout */
+	grid-template-columns: repeat(3, 1fr); /* 3개의 동일한 너비 컬럼 생성 / Create 3 equal-width columns */
+	gap: 16px; /* 아이템 간 간격 16px / 16px spacing between grid items */
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-card {
+	display: flex;
+	flex-direction: column;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 12px;
+	padding: 24px;
+	position: relative;
+	overflow: hidden;
+	z-index: 9998;
+}
+
+.skill-card:hover {
+	transition: transform 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+	transform: translateY(0) scale(1.03);
+	border-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+	z-index: 9998;
+}
+
+.skill-card > * {
+	position: relative;
+	z-index: 1;
+}
+
+.skill-card-classN {
+	color: #555555;
+	font-size: 12px;
+}
+
+.card-title {
+	color: #555555;
+	font-size: 16px;
+	letter-spacing: 2px;
+	margin-bottom: 16px;
+}
+
+.card-title-content {
+	
+	margin-bottom: 16px;
+}
+
+/*Main course-card // Flip Card*/
+/* Reference: https://www.w3schools.com/howto/howto_css_flip_card.asp?utm_source=chatgpt.com/ */
+
+
+.skill-card-course {
+	background-color: transparent;
+	min-height: 320px;
+	perspective: 1000px;
+	overflow: visible;
+	position: relative;
+}
+
+.skill-card-course-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 320px;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	overflow: visible;
+}
+
+.skill-card-course:hover .skill-card-course-inner {
+	transform: rotateY(180deg);
+}
+
+.skill-card-course:hover { /*스킬카드 네비바 간섭생겨서 z-index 넣음*/
+	z-index: 10000;
+}
+
+.skill-card-course-front,
+.skill-card-course-back {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 24px;
+	background-color: rgba(255, 255, 255, 0.92);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 12px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 9998;
+	overflow: visible;
+}
+
+.skill-card-course-back {
+	background: linear-gradient(160deg, #1a2a31 0%, #243942 100%);
+	border-color: rgba(20, 33, 39, 0.5);
+	transform: rotateY(180deg);
+}
+
+.skill-card-course-back .card-title-course,
+.skill-card-course-back .card-title-course-content p {
+	color: #edf4f7;
+}
+
+.card-title-course-evidence {
+	width:100%;
+	max-height: 100%;
+	overflow: hidden;
+}
+
+.card-title-course-evidence img {
+	width: 100%;
+	height: auto;
+	display: block;
+	cursor: pointer;
+}
+
+.evidence-modal {
+	display: none;
+	position: fixed;
+	z-index: 20001;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.evidence-modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 900px;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+.evidence-modal-caption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #cccccc;
+	padding: 10px 0;
+	height: 150px;
+}
+
+.evidence-modal-close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.evidence-modal-close:hover,
+.evidence-modal-close:focus {
+	color: #bbbbbb;
+	text-decoration: none;
+}
+
+@keyframes zoom {
+	from {transform: scale(0)}
+	to {transform: scale(1)}
+}
+
+@media (max-width: 900px) {
+  .card-title-course-evidence img {
+	cursor: pointer;
+  }
+
+  .evidence-modal-content {
+	width: 100%;
+  }
+}
+
+.card-title-course {
+	color: #555555;
+	font-size: 16px;
+	letter-spacing: 2px;
+	margin-bottom: 16px;
+}
+
+.card-title-course-content {
+	
+	margin-bottom: 16px;
+}
+
+
+.skill-card-course-back .tag {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.18);
+	color: #edf4f7;
+}
+
+@media (max-width: 500px) {
+	.skill-card-course-front,
+	.skill-card-course-back {
+		min-height: 280px;
+	}
+}
+
+
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	flex: 1;
+	align-content: flex-end; /* 태그들을 카드 아래쪽에 정렬 */
+}
+
+.tag-list p {
+	width: 100%;
+	margin-bottom: auto; /* 설명 문단과 태그를 위아래로 분리 */
+	font-size: 16px;
+}
+
+.tag { /*작은 태그 상자 꾸미기*/
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(0, 0, 0, 0.03);
+	border-radius: 8px;
+	padding: 6px 14px;
+	font-size: 14px;
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+	color: #222;
+	font-weight: 400;
+	display: inline-block;
+	transition: all 0.25s ease;
+	backdrop-filter: blur(4px);
+}
+
+.tag:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: rgba(0, 0, 0, 0.25);
+	transform: translateY(-2px);
+}
+
+.exp-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* 2열 */
+	gap: 40px 60px;
+	background: #ffffff;
+	padding: 60px;
+}
+
+.exp-sentence {
+	border-left: 2px solid #c8a96e; /* 왼쪽 골드 선 */
+	padding-left: 20px;
+}
+
+.exp-sentence span {
+	color: black;
+	font-size: 16px;
+	line-height: 1.6;
+}
+   
+   
+.exp-shape {
+	width: 100%;
+	background: #e8f3f5;
+	/*border-radius: 14px; */ 
+	border-bottom-left-radius: 14px;
+	border-bottom-right-radius: 14px;  
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	overflow: hidden;
+	transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-shape:hover {
+	transform: translateY(-4px);
+}
+
+.exp-box-section {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .exp-box-section {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.exp-box-left {
+	flex: 1;
+	padding: 0;
+	margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .exp-box-left {
+    margin-top: 20px;
+  }
+}
+
+.exp-box-left-text {
+	padding: 5px;
+  font-size: 16px;
+}
+
+.exp-box-right {
+	flex: 1;
+	display: flex;
+	padding: 15px 5px;
+}
+
+.exp-box-right-image {
+	display: block;
+	margin-left: auto;
+	width: 100%;
+	height: auto;
+	max-width: 400px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.exp-bullets {
+	list-style: none;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+
+.exp-bullets li {
+	font-size: 14px;
+	color: #53656d;
+	line-height: 1.7;
+	letter-spacing: 0.01em;
+	padding-bottom: 10px;
+	display: flex;
+}
+
+.exp-bullets li::before {
+	content: '▸';
+	color: #27C93F;
+	flex-shrink: 0;
+	margin-right: 6px;
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   Reference: https://www.w3schools.com/tools/tool_css_animation.php
+   ============================================================ */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*  ■■■■■■■■■■■■■■■ Experience Page ■■■■■■■■■■■■■■■ */
+/*  Reference: https://www.w3schools.com/howto/howto_js_accordion.asp= */
+
+
+.panel {
+	max-height: 0;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.65);
+	transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+
+/* padding은 inner div에 고정 → panel의 padding 변화로 인한 끊김 방지 */
+.panel-inner {
+	padding: 20px 30px;
+}
+
+.accordion {
+	background-color: rgba(255, 255, 255, 0.75);
+	color: #2f4f57;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+}
+
+.accordion:hover {
+	background-color: rgba(188, 224, 230, 0.92);
+	box-shadow: inset 0 0 0 999px rgba(188, 224, 230, 0.92);
+}
+
+.accordion.active {
+	background-color: rgba(166, 212, 220, 0.96);
+	box-shadow: inset 0 0 0 999px rgba(166, 212, 220, 0.96);
+}
+
+.accordion:after {
+	content: '\02795';
+	font-size: 13px;
+	color: rgba(80, 110, 120, 0.7);
+	background-color: transparent; 
+	float: right;
+	margin-left: 5px;
+}
+
+.accordion.active:after {
+	content: "\2796";
+}
+
+.accordian-panel {
+	display: flex;
+	float: left;
+	align-items: center;
+}
+
+.accordian-panel-date,
+.accordian-panel-date-past {
+	font-size: 10px;
+	text-align: center;
+	border-radius: 12px;
+	padding: 4px 10px;
+	font-weight: 300;
+	white-space: nowrap;
+	min-width: 90px;
+}
+
+.accordian-panel-date {
+	background-color: rgba(120, 200, 180, 0.35);
+	color: #2f6f65;
+	border: 1px solid rgba(120, 200, 180, 0.45);
+}
+
+.accordian-panel-date-past {
+	background-color: rgba(190, 200, 205, 0.35);
+	color: #5f6f75;
+	border: 1px solid rgba(190, 200, 205, 0.45);
+}
+
+.accordian-panel-title {
+	flex: 1;
+	padding-left: 12px;
+	font-weight: 200;
+	font-size: 15px;
+	color: #3b555c;
+}
+
+.accordion:hover .accordian-panel-title,
+.accordion.active .accordian-panel-title {
+  background-color: transparent;
+}
+
+/*  ■■■■■■■■■■■■■■■ Project Page ■■■■■■■■■■■■■■■ */
+
+.feature-header {
+	
+}
+
+.feature-header h2 {
+    font-size: 20px; /* ← size → font-size 로 수정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-grid h3 {
+    font-size: 16px; 
+	margin-bottom:12px;/* ← size → font-size 로 수정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.feature-grid {
+	display: flex; /*그리드를 가로로 정렬해주지만 이걸로는 모바일에서 정렬이 안됨*/
+	flex-wrap: wrap; /*플렉스 랩을 해야 모바일에서 붙지 않고 아래로 내려감*/
+	gap: 24px;
+	padding: 10px 10px;
+	transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.feature-card {
+	flex:1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 12px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: #ffffff;
+	padding: 20px 20px;
+	width: 100%;
+	max-width: 500px; /* 부모 크기 제한 */
+	overflow: hidden; /* 넘치는 부분 숨김 */
+  
+}
+
+.feature-card-bottom {
+	margin-top: auto;
+}
+
+.feature-card:hover {
+	transform: translateY(0) scale(1.01);
+	border-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .feature-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.styled-video {
+    width: 100%;
+    height: auto;
+    /* border-radius: 20px; /* 둥근 모서리 */
+    /* border: 5px solid black; /* 검은색 테두리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    outline: none; /* 기본 아웃라인 제거 */
+}
+
+.styled-video:hover {
+    transform: scale(1.01); /* 약간 확대 */
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-text {
+	padding: 10px 10px;
+}
+
+.feature-text p {
+  font-size: 16px;
+}
+
+.feature-icon-list {
+	display: flex;
+	justify-content: left; 
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.feature-icon-individual {
+	margin: 0 10px;
+	display: flex;
+	align-items:center;
+}
+
+.feature-icon-button {
+	margin: 0 10px;
+	display: flex;
+	margin-left: auto;
+}
+
+.project-feature-submit-button {
+	height: 40px;
+	/* border: 2px solid #111111; */
+	color: #ffffff;
+	font-weight: bold;
+	border-radius: 6px;
+	background: #111111;
+	padding: 0px 10px;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.project-feature-submit-button:hover {
+	background: #333333;
+	transform: translateY(-2px);
+}
+
+
+
+.pro-bullets {
+	list-style: none;
+	padding: 15px 15px;
+	padding-left: 10px;
+}
+
+.pro-bullets li {
+	font-size: 14px;
+	color: #53656d;
+	line-height: 1.4;
+	letter-spacing: 0.01em;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	display: flex;
+}
+
+.pro-bullets li::before {
+	content: '▸';
+	color: #27C93F;
+	flex-shrink: 0;
+	margin-right: 6px;
+}
+
+
+.titlebar {
+	background: #c8dde0;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	padding: 10px 14px;
+	margin-bottom: 8px;
+}
+
+/*  ■■■■■■■■■■■■■■■ Contract Page ■■■■■■■■■■■■■■■ */
+
+.dot {
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+}
+
+.dot-red {
+	background: #FF5F56;
+}
+
+.dot-yellow {
+	background: #FFBD2E;
+}
+
+.dot-green {
+	background: #27C93F;
+}
+
+.contact-layout {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	width: 100%;
+	margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.contact-left {
+	flex: 1;
+	font-size: 16px;
+}
+
+.contact-text {
+	padding: 0 0 40px;
+	font-size: 16px;
+	color: #53656d;
+}
+
+.contact-right {
+	flex: 1;
+	background: #ffffff;
+	min-width: 0;
+	border-radius: 12px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+	padding: 0 0 20px;
+  
+}
+
+.contact-right:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 18px 36px rgba(80, 160, 165, 0.16);
+	transition: transform 0.1s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+
+
+.contact-right form {
+	padding: 0 20px;
+}
+
+.contact-box {
+	color: #111111;
+	font-weight: 14;
+	border-radius: 6px;
+	margin-top: 12px;
+	padding: 5px 12px;
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.contact-box a {
+	color: #111111;
+}
+
+.contact-box:hover {
+	transform: translateX(-12px);
+}
+
+.contact-right label {
+	display: block;
+	margin-top: 14px;
+	margin-bottom: 5px;
+}
+
+.contact-right input,
+.contact-right textarea {
+	width: 100%;
+	max-width: 100%;
+}
+
+.contact-right input {
+	height: 40px;
+}
+
+.contact-right textarea {
+	font-size: 18px;
+	height: 140px;
+	margin-bottom: 5px;
+}
+
+input,
+textarea {
+	padding: 10px 14px;
+	box-sizing: border-box;
+}
+
+.contact-right input:focus,
+input:focus,
+textarea:focus {
+	border-color: #aaaaaa;
+	outline: none;
+	background: #e8f3f5;
+}
+
+.send-button {
+	width: 100%;
+	height: 40px;
+	border: 2px solid #111111;
+	color: #ffffff;
+	font-weight: 14;
+	border-radius: 6px;
+	background: #111111;
+	margin: 0;
+	padding: 5px 10px;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+	transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.send-button:hover {
+	background: #333333;
+	transform: translateY(-2px);
+}
+
+/*  ■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■ */
+.copyright {
+	text-align: center;	
+}
+
+/*  ■■■■■■■■■■■■■■■ About Page - Flip card ■■■■■■■■■■■■■■■ */
+
+.panel-inner-about {
+}
+
+.skills-grid-about {
+	display: grid; /* 그리드 레이아웃 사용 / Use CSS Grid layout */
+	grid-template-columns: repeat(2, 1fr); /* 3개의 동일한 너비 컬럼 생성 / Create 3 equal-width columns */
+	/*gap: 5px; /* 아이템 간 간격 16px / 16px spacing between grid items */
+}
+   
+@media (max-width: 900px) {
+  .skills-grid-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .skills-grid-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-grid-about {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	width: 100%;
+}
+
+.interest-card {
+	position: relative;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	background: #d9e9ee;
+	box-shadow: 0 10px 24px rgba(45, 86, 95, 0.8);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.interest-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.interest-card-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 18px;
+	background: linear-gradient(180deg, rgba(23, 49, 56, 0.08) 18%, rgba(23, 49, 56, 0.82) 100%);
+	color: #edf4f7;
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.interest-card-overlay h3 {
+	margin: 0 0 8px;
+	font-size: 18px;
+	letter-spacing: 0.5px;
+}
+
+.interest-card-overlay p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.interest-card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(60, 100, 108, 0.28);
+	box-shadow: 0 18px 32px rgba(45, 86, 95, 0.16);
+}
+
+.interest-card:hover img {
+	transform: scale(1.08);
+	filter: brightness(0.3);
+}
+
+.interest-card:hover .interest-card-overlay {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .skills-grid-about {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .interest-card {
+	aspect-ratio: 4 / 3;
+  }
+
+  .interest-card-overlay {
+	opacity: 1;
+	transform: translateY(0);
+	padding: 16px;
+  }
+
+  .interest-card img {
+	filter: brightness(0.82);
+  }
+
+  .interest-card-overlay h3 {
+	font-size: 16px;
+  }
+
+  .interest-card-overlay p {
+	font-size: 13px;
+  }
+}
+
+@media (hover: none) {
+  .interest-card-overlay {
+	opacity: 1;
+	transform: translateY(0);
+  }
+
+  .interest-card img {
+	filter: brightness(0.82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-card,
+  .interest-card img,
+  .interest-card-overlay {
+	transition: none;
+  }
+}
+
+.theme-switcher {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0 0 0 10px;
+}
+
+.theme-switcher input[type="radio"] {
+	display: none;
+}
+
+.theme-switcher label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(255, 255, 255, 0.7);
+	color: #111111;
+	padding: 8px 14px;
+	border-radius: 999px;
+	cursor: pointer;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+	transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-switcher label:hover {
+	color: #edf3f7;
+	background: #18242b;
+	border-color: rgba(160, 185, 198, 0.32);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+	transform: translateY(-1px);
+}
+
+.theme-switcher input[type="radio"]:checked + label {
+	background: #18242b;
+	color: #edf3f7;
+	border-color: rgba(160, 185, 198, 0.32);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 720px) {
+  .theme-switcher {
+    width: 100%;
+    margin: 14px 0 18px;
+    padding: 0 16px;
+    order: 99;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .theme-switcher label {
+    min-width: 140px;
+    padding: 12px 16px;
+  }
+
+  .nav-links.open .theme-switcher {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+
+/* Dark theme overrides */
+body {
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse at 18% 18%, rgba(255, 255, 255, 0.05) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 12%, rgba(76, 122, 142, 0.16) 0%, transparent 44%),
+    radial-gradient(ellipse at 62% 82%, rgba(59, 93, 110, 0.14) 0%, transparent 50%),
+    linear-gradient(160deg, #091015 0%, #0d1418 38%, #111b20 70%, #0b1217 100%);
+  color: #edf4f7;
+}
+
+li,
+.skill-desc,
+.exp-bullets li,
+.pro-bullets li,
+.contact-text,
+.about-grid-left p,
+.feature-text p,
+.exp-box-left-text,
+.skills-subtitle,
+.skill-score,
+.skill-card-classN,
+.accordian-panel-title,
+.copyright {
+  color: #b7c8cf;
+}
+
+a,
+.title,
+.nav-links a,
+.section-title,
+.about-introduce h2,
+.feature-grid h3,
+.feature-header h2,
+.contact-box,
+.contact-box a,
+.skills-wrap h1,
+.skill-name,
+.card-title,
+.card-title-course,
+.contact-right label {
+  color: #edf4f7;
+}
+
+.navbar {
+  background: rgba(10, 16, 21, 0.72);
+  border-bottom: 1px solid rgba(164, 190, 201, 0.18);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.28);
+}
+
+.nav-links {
+  background: transparent;
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    background: rgba(12, 19, 24, 0.96);
+    border-top: 0;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .nav-links.open {
+    border-top: 1px solid rgba(164, 190, 201, 0.18);
+    border-bottom: 1px solid rgba(164, 190, 201, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  }
+
+  .nav-links.open a {
+    color: #edf4f7;
+    border-bottom: 1px solid rgba(164, 190, 201, 0.1);
+  }
+}
+
+.nav-links a::after {
+  background: linear-gradient(90deg, #edf4f7, #7eb4c3);
+}
+
+.theme-toggle {
+  border: 1px solid rgba(164, 190, 201, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #edf4f7;
+}
+
+.theme-toggle:hover {
+  color: #0d1418;
+  background: #edf4f7;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.menu-toggle {
+  color: #edf4f7;
+}
+
+main::before {
+  box-shadow: -6px 0 14px 3px rgba(0, 0, 0, 0.18);
+}
+
+main::after {
+  box-shadow: 6px 0 14px 3px rgba(0, 0, 0, 0.18);
+}
+
+.section,
+.section-about {
+  position: relative;
+}
+
+.section::after,
+.section-about::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(164, 190, 201, 0.16);
+}
+
+.about-section {
+  background: rgba(18, 27, 33, 0.82);
+}
+
+.skills-section {
+  background: rgba(12, 18, 23, 0.86);
+}
+
+.education-section {
+  background: rgba(15, 22, 28, 0.9);
+}
+
+.project-section {
+  background: rgba(11, 18, 22, 0.84);
+}
+
+.experience-section {
+  background: rgba(16, 24, 30, 0.92);
+}
+
+.contact-section {
+  background: rgba(12, 19, 24, 0.94);
+}
+
+.section-title::before {
+  color: #8fc4ff;
+}
+
+.about-introduce h2,
+.exp-sentence span {
+  color: #edf4f7;
+}
+
+.skills-wrap,
+.skill-card,
+.skill-card-course,
+.feature-card,
+.contact-right {
+  background: rgba(20, 31, 37, 0.9);
+  border: 1px solid rgba(164, 190, 201, 0.18);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.34);
+}
+
+.skill-card[style*="images/education/"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card[style*="images/education/"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(10, 16, 21, 0.9) 0%, rgba(10, 16, 21, 0.9) 62%, rgba(10, 16, 21, 0.68) 74%, rgba(10, 16, 21, 0.32) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skill-card[style*="images/education/"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-card-course-front {
+  background-color: rgba(20, 31, 37, 0.92);
+  border: 1px solid rgba(164, 190, 201, 0.18);
+}
+
+.progress-bar {
+  background: rgba(126, 150, 162, 0.2);
+}
+
+.tag {
+  border: 1px solid rgba(164, 190, 201, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: #edf4f7;
+}
+
+.tag:hover,
+.feature-card:hover,
+.contact-right:hover {
+  border-color: rgba(184, 210, 220, 0.28);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.36);
+}
+
+.exp-sentence {
+  border-left: 2px solid #8e7750;
+}
+
+.exp-grid {
+  background: rgba(12, 19, 24, 0.78);
+}
+
+.exp-shape {
+  background: rgba(28, 43, 51, 0.88);
+  border: 1px solid rgba(164, 190, 201, 0.18);
+}
+
+.panel,
+.accordion-about,
+.accordion {
+  background-color: rgba(17, 28, 35, 0.9);
+}
+
+.panel {
+  background-color: rgba(17, 28, 35, 0.9);
+}
+
+.accordion {
+  background-color: rgba(24, 37, 44, 0.92);
+  color: #edf4f7;
+}
+
+.accordion:hover {
+  background-color: rgba(45, 65, 76, 0.96);
+  box-shadow: inset 0 0 0 999px rgba(45, 65, 76, 0.96);
+}
+
+.accordion.active {
+  background-color: rgba(56, 79, 91, 0.98);
+  box-shadow: inset 0 0 0 999px rgba(56, 79, 91, 0.98);
+}
+
+.accordion:after {
+  color: rgba(220, 232, 238, 0.76);
+}
+
+.accordion-about {
+  color: #c7d5db;
+}
+
+.accordion-about:hover,
+.accordion-about.active {
+  background-color: rgba(24, 37, 44, 0.92);
+  box-shadow: none;
+}
+
+.accordion-about:after {
+  color: rgba(220, 232, 238, 0.76);
+}
+
+.accordion-about-panel-title,
+.accordion:hover .accordian-panel-title,
+.accordion.active .accordian-panel-title,
+.accordion-about:hover .accordion-about-panel-title,
+.accordion-about.active .accordion-about-panel-title {
+  color: #edf4f7;
+}
+
+.accordian-panel-date {
+  background-color: rgba(71, 135, 120, 0.28);
+  color: #9fd8ca;
+  border: 1px solid rgba(95, 155, 140, 0.36);
+}
+
+.accordian-panel-date-past {
+  background-color: rgba(88, 102, 110, 0.3);
+  color: #b6c2c8;
+  border: 1px solid rgba(108, 124, 132, 0.38);
+}
+
+.project-feature-submit-button,
+.send-button {
+  border: 0;
+  color: #0d1418;
+  background: #edf4f7;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.26);
+}
+
+.project-feature-submit-button:hover,
+.send-button:hover {
+  background: #ffffff;
+}
+
+.titlebar {
+  background: #24323a;
+}
+
+.feature-grid h3,
+.feature-header h2,
+.contact-box a:hover {
+  color: #edf4f7;
+}
+
+input,
+textarea,
+.contact-right input,
+.contact-right textarea {
+  color: #edf4f7;
+  background: rgba(9, 15, 19, 0.92);
+  border: 1px solid rgba(164, 190, 201, 0.18);
+}
+
+input:focus,
+textarea:focus,
+.contact-right input:focus,
+.contact-right textarea:focus {
+  border-color: #6d97aa;
+  background: rgba(14, 22, 27, 0.98);
+}
+
+.contact-box:hover {
+  background: rgba(126, 180, 195, 0.08);
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(184, 210, 220, 0.28);
+}
+
+.styled-video {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.16);
+}
+
+
+.evidence-modal {
+  display: none;
+  position: fixed;
+  z-index: 10001;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.evidence-modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 900px;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+.evidence-modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #cccccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.evidence-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.evidence-modal-close:hover,
+.evidence-modal-close:focus {
+  color: #bbbbbb;
+  text-decoration: none;
+}
+
+@keyframes zoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+@media only screen and (max-width: 700px) {
+  .evidence-modal-content {
+    width: 100%;
+  }
+}
+
+.theme-switcher label {
+  border: 1px solid rgba(164, 190, 201, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #edf4f7;
+}
+
+.theme-switcher label:hover {
+  color: #0d1418;
+  background: #edf4f7;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.theme-switcher input[type="radio"]:checked + label {
+  color: #0d1418;
+  background: #edf4f7;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+
